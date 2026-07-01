@@ -33,3 +33,10 @@ with open("jokes_result.json", "w", encoding="utf-8") as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
 print("\nРезультаты сохранены в jokes_result.json")
+# Дополнительная функция
+def get_joke_by_category(category="Any"):
+    url = f"https://v2.jokeapi.dev/joke/{category}"
+    return requests.get(url).json()
+
+print("\nШутка из категории Programming:")
+print(get_joke_by_category("Programming").get("joke"))
